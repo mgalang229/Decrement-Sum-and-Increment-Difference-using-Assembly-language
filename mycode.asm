@@ -5,10 +5,10 @@
    heading db 10, 13, "Increment and Decrement Operations$"
    
    message1 db 10, 13, 10, 13, "Sum of Two Numbers Before Decrement: $"
-   message2 db 10, 13, "Sum of Two Numbers After Increment: $"
+   message2 db 10, 13, "Sum of Two Numbers After Decrement: $"
    
    message3 db 10, 13, 10, 13, "Difference of Two Numbers Before Increment: $"
-   message4 db 10, 13, "Difference of Two Numbers After Decrement: $"
+   message4 db 10, 13, "Difference of Two Numbers After Increment: $"
    
    x db ?
    y db ?
@@ -25,7 +25,7 @@ main proc far
    mov ah, 09h
    int 21h 
    
-   IncrementSum:
+   DecrementSum:
    
    lea dx, message1 ; print message 1 (for sum)
    mov ah, 09h
@@ -53,7 +53,7 @@ main proc far
    mov ah, 02h      ; print dl (value)
    int 21h
    
-   DecrementDifference:
+   IncrementDifference:
    
    lea dx, message3 ; print message 3 (for difference)
    mov ah, 09h
@@ -63,7 +63,7 @@ main proc far
    mov y, 4         ; store 4 to y 
    
    mov dl, x        ; copy x to dl
-   sub dl, y        ; add y to dl
+   sub dl, y        ; subtract y to dl
    add dl, 48       ; add 48 to dl
    
    mov ah, 02h      ; print dl (value)
